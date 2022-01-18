@@ -6,6 +6,8 @@
 
 This is a solution to Integrify Academy Pre-assignment made with ReactJS and TypeScript
 
+Demo: https://brewery-collection.netlify.app/
+
 ## Requirements
 
 * Create an Brewery Collection by using <a href="https://www.openbrewerydb.org/documentation/01-listbreweries"> Brewery API  </a> using ReactJS
