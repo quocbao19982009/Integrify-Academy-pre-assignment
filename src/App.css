@@ -1,3 +1,9 @@
 .App {
   text-align: center;
+  min-height: 80vh;
+}
+
+footer {
+  clear: both;
+  position: relative;
 }
