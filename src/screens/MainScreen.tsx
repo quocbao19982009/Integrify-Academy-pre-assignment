@@ -6,6 +6,7 @@ import { breweryInterface } from "../interfaces/breweryInterface";
 import { useFetch } from "../hooks/useFetch";
 import SearchBar from "../components/SearchBar";
 import { useNavigate, useParams } from "react-router-dom";
+
 const MainScreen = () => {
   const params = useParams();
   const keywords = params.keyword?.replaceAll(" ", "%20");
@@ -17,6 +18,9 @@ const MainScreen = () => {
     "https://api.openbrewerydb.org/breweries",
     querySearch
   );
+
+  console.log(breweriesData == []);
+  console.log(breweriesData);
 
   useEffect(() => {
     if (response) {
@@ -35,12 +39,18 @@ const MainScreen = () => {
       )}
 
       {!isLoading && error && <h2>Something went wrong</h2>}
+
       {isLoading && !error && (
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
-      {!isLoading && !error && (
+
+      {!isLoading && !error && breweriesData.length === 0 && (
+        <h2>No Berwery Found</h2>
+      )}
+
+      {breweriesData !== [] && !isLoading && !error && (
         <Row>
           {breweriesData.map((item) => (
             <Col sm={12} md={6} lg={4} xl={3} key={item.id}>

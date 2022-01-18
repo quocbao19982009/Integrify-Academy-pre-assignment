@@ -18,7 +18,6 @@ const DetailsScreen = () => {
     querySearch
   );
 
-  console.log(breweryDetails);
   useEffect(() => {
     if (response) {
       setBreweryDetails(response);
